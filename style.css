@@ -1,0 +1,221 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: #00ffcc;
+  overflow-x: hidden;
+}
+
+.loader {
+  position: fixed;
+  z-index: 9999;
+  background: #000;
+  color: #0f0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.5rem;
+}
+
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 255, 100, 0.05),
+    rgba(0, 255, 100, 0.05) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  z-index: -2;
+}
+
+canvas#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  perspective: 1000px;
+}
+
+.glow {
+  font-size: 2.5rem;
+  color: #a2ff00;
+  text-shadow: 0 0 5px #a2ff00, 0 0 20px #00ff88;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+.glow span {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+.big {
+  font-size: 3.5rem;
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 5px #00ff88, 0 0 20px #00ff88; }
+  50% { text-shadow: 0 0 20px #a2ff00, 0 0 40px #a2ff00; }
+}
+
+.tagline {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #ccc;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-glass {
+  background: rgba(0, 255, 100, 0.1);
+  border: 1px solid rgba(0, 255, 100, 0.4);
+  backdrop-filter: blur(10px);
+  color: #00ffcc;
+  padding: 14px 22px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.btn-glass:hover {
+  background: rgba(0, 255, 100, 0.25);
+  box-shadow: 0 0 12px #00ffcc;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 60px 30px;
+  position: relative;
+}
+
+.block {
+  background: rgba(0, 255, 100, 0.05);
+  border: 1px solid rgba(0, 255, 100, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px #00ff88;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.block-glass ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.floating-text {
+  position: absolute;
+  font-size: 0.9rem;
+  color: #00ffcc;
+  opacity: 0.3;
+  font-family: 'Share Tech Mono', monospace;
+  pointer-events: none;
+}
+
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+.phone-3d {
+  max-width: 350px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,255,100,0.3);
+  transform: rotateY(12deg) rotateX(4deg);
+  transition: transform 0.4s ease;
+}
+
+.phone-3d:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+.quote {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ff0040;
+  border: 1px dashed #ff0040;
+  background: rgba(255, 0, 64, 0.05);
+  text-shadow: 0 0 10px #ff0040;
+}
+
+.alert {
+  font-weight: bold;
+  color: #f0f;
+  text-align: center;
+  font-size: 1rem;
+  background: rgba(255, 0, 255, 0.05);
+  border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 40px 10px;
+  color: #555;
+}
+
+/* Glitch effect */
+.glitch-text {
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 1px 1px #ff00c1, -1px -1px #00fff9; }
+  20% { text-shadow: 2px -1px #00fff9, -1px 2px #ff00c1; }
+  40% { text-shadow: -1px -1px #ff00c1, 1px 1px #00fff9; }
+  60% { text-shadow: 1px -2px #00fff9, -2px 1px #ff00c1; }
+  80% { text-shadow: -1px 1px #ff00c1, 2px -1px #00fff9; }
+  100% { text-shadow: 1px 1px #ff00c1, -1px -1px #00fff9; }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .glow.big {
+    font-size: 2rem;
+  }
+
+  .btn-glass {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
+
+  .floating-text {
+    font-size: 0.7rem;
+  }
+
+  .phone-3d {
+    max-width: 100%;
+  }
+}
